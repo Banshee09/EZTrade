@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EZTrade</string>
+    <string name="title_home">Home</string>
+    <string name="title_research">Research</string>
+    <string name="title_transact">Transact</string>
+    <string name="title_history">History</string>
+</resources>

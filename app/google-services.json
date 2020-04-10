@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "334553050689",
+    "firebase_url": "https://eztrade-4cb06.firebaseio.com",
+    "project_id": "eztrade-4cb06",
+    "storage_bucket": "eztrade-4cb06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334553050689:android:d4ef6f9b6da9aa222560c0",
+        "android_client_info": {
+          "package_name": "com.eztrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334553050689-43kb94l0aj47f6eld2532ol9nl9372e2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eztrade",
+            "certificate_hash": "5cfba0eef49c4878b3e2647f72297318ce67edd1"
+          }
+        },
+        {
+          "client_id": "334553050689-iep7kc4e1hgjvj4lcpf03g9mdkjuqdas.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAbNK3zd3f4Biy37yMKn-le0kVwz-Z4ig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334553050689-iep7kc4e1hgjvj4lcpf03g9mdkjuqdas.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

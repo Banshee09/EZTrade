@@ -20,9 +20,8 @@ class OrdersRepository(private val database: OrdersDatabase) {
         withContext(Dispatchers.IO) {
 //            //only use in testing
 //            database.clearAllTables()
-
-            val orders = EzTradeWs.orderService.getOrders("sam")
-            database.orderDao.insertAll(*orders.map { it.asDatabaseModel() }.toTypedArray())
+//            val orders = EzTradeWs.orderService.getOrders("sam")
+//            database.orderDao.insertAll(*orders.map { it.asDatabaseModel() }.toTypedArray())
         }
     }
 

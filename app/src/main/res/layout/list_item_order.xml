@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="order"
+            type="com.eztrade.domain.Order" />
+
+        <variable
+            name="clickListener"
+            type="com.eztrade.ui.OrderListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_top_bottom"
+        android:onClick="@{() -> clickListener.onClick(order)}"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/asset"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:assetString="@{order}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="NAB" />
+
+        <TextView
+            android:id="@+id/quanity"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="textEnd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/asset"
+            app:layout_constraintTop_toTopOf="@+id/asset"
+            app:quantityString="@{order}"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="textEnd"
+            app:layout_constraintEnd_toEndOf="@+id/quanity"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/quanity"
+            app:layout_constraintTop_toBottomOf="@+id/quanity"
+            app:totalString="@{order}"
+            tools:text="$1000.00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -77,6 +77,6 @@ fun TextView.setTotalString(item: Order?) {
     }
 }
 
-class OrderListener(val clickListener: (orderId: Long) -> Unit) {
-    fun onClick(order: Order) = clickListener(order.orderId)
+class OrderListener(val clickListener: (order: Order) -> Unit) {
+    fun onClick(order: Order) = clickListener(order)
 }

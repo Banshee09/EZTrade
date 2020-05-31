@@ -36,9 +36,16 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
     }
 
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is history Fragment"
+    private val _navigateToDetail = MutableLiveData<Order>()
+    val navigateToDetail
+        get() = _navigateToDetail
+
+    fun onOrderClicked(order: Order) {
+        _navigateToDetail.value = order
     }
-    val text: LiveData<String> = _text
+
+    fun onDetailNavigated() {
+        _navigateToDetail.value = null
+    }
 
 }

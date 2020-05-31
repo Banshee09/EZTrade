@@ -1,7 +1,10 @@
 package com.eztrade.domain
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.time.LocalDateTime
 
+@Parcelize
 data class Order(
     var user: String,
     var asset: String,
@@ -11,4 +14,4 @@ data class Order(
     var insertDate: LocalDateTime,
     var updateDate: LocalDateTime,
     var orderId: Long
-)
+) : Parcelable

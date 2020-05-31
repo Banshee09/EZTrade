@@ -27,5 +27,22 @@
         android:id="@+id/navigation_history"
         android:name="com.eztrade.ui.HistoryFragment"
         android:label="@string/title_history"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_navigation_history_to_navigation_detail"
+            app:destination="@id/navigation_detail"
+            app:popUpTo="@id/navigation_history"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_detail"
+        android:name="com.eztrade.ui.DetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="order"
+            app:argType="com.eztrade.domain.Order" />
+    </fragment>
+
 </navigation>

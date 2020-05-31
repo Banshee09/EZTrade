@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp()
+    }
+
     override fun onResume() {
         super.onResume()
         if (FirebaseAuth.getInstance().currentUser == null) {

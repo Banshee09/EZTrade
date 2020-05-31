@@ -9,8 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.eztrade.R
 import com.eztrade.database.getDatabase
 import com.eztrade.databinding.FragmentHistoryBinding
@@ -36,14 +38,8 @@ class HistoryFragment : Fragment() {
         historyViewModel = ViewModelProviders.of(this).get(HistoryViewModel::class.java)
         binding.historyViewModel = historyViewModel
 
-//        val textView: TextView = root.findViewById(R.id.text_history)
-//
-//        historyViewModel.orders.observe(this, Observer {
-//            textView.text = it.toString()
-//        })
-
-        val adapter = OrderAdapter(OrderListener { orderId ->
-            Toast.makeText(context, "${orderId}", Toast.LENGTH_LONG).show()
+        val adapter = OrderAdapter(OrderListener { order ->
+            historyViewModel.onOrderClicked(order)
         })
         binding.orderList.adapter = adapter
         historyViewModel.orders.observe(viewLifecycleOwner, Observer {
@@ -52,6 +48,18 @@ class HistoryFragment : Fragment() {
             }
         })
 
+        historyViewModel.navigateToDetail.observe(this, Observer { order ->
+            order?.let {
+                this.findNavController()
+                    .navigate(
+                        HistoryFragmentDirections.actionNavigationHistoryToNavigationDetail(
+                            order
+                        )
+                    )
+
+                historyViewModel.onDetailNavigated()
+            }
+        })
 
         return binding.root
     }

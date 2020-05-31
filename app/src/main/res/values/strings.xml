@@ -4,4 +4,5 @@
     <string name="title_research">Research</string>
     <string name="title_transact">Transact</string>
     <string name="title_history">History</string>
+    <string name="title_detail">Order Detail</string>
 </resources>

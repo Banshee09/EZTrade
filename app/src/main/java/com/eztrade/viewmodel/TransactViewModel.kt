@@ -1,14 +1,21 @@
 package com.eztrade.viewmodel
 
 
-import androidx.lifecycle.LiveData
+import android.util.Log
+import androidx.databinding.Bindable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class TransactViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is transact Fragment"
+    val asset = MutableLiveData<String>()
+
+
+    public fun fillOrder() {
+        Log.d("TransactViewModel", asset.value)
     }
-    val text: LiveData<String> = _text
+
+    public fun placeOrder() {
+
+    }
 }

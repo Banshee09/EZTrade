@@ -21,18 +21,30 @@
         android:onClick="@{() -> clickListener.onClick(order)}"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/instruction"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:src="@drawable/ic_baseline_add_circle_outline_24"
+            app:instructionImage="@{order}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/asset"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:textStyle="bold"
             app:assetString="@{order}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/instruction"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="NAB" />
 

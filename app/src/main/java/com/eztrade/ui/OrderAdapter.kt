@@ -3,6 +3,7 @@ package com.eztrade.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -53,6 +54,16 @@ class OrderDiffCallback : DiffUtil.ItemCallback<Order>() {
 
     override fun areContentsTheSame(oldItem: Order, newItem: Order): Boolean {
         return oldItem == newItem
+    }
+}
+
+@BindingAdapter("instructionImage")
+fun ImageView.setInstruction(item: Order?) {
+    item?.let {
+        if (item.instruction == "BUY")
+            setImageResource(R.drawable.ic_baseline_add_circle_outline_24)
+        else
+            setImageResource(R.drawable.ic_baseline_remove_circle_outline_24)
     }
 }
 

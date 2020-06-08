@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 
 data class NetworkOrder(
     var user: String,
+    var instruction: String,
     var asset: String,
     var quantity: Int,
     var price: Double,
@@ -17,6 +18,7 @@ data class NetworkOrder(
 fun NetworkOrder.asDatabaseModel(): DatabaseOrder {
     return DatabaseOrder(
         user = this.user,
+        instruction = this.instruction,
         asset = this.asset,
         quantity = this.quantity,
         price = this.price,

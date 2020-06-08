@@ -33,6 +33,7 @@ object LocalDateTimeConverters {
 data class DatabaseOrder(
     @PrimaryKey
     var orderId: Long,
+    var instruction: String,
     var user: String,
     var asset: String,
     var quantity: Int,
@@ -45,6 +46,7 @@ data class DatabaseOrder(
 fun DatabaseOrder.asDomainModel(): Order {
     return Order(
         user = this.user,
+        instruction = this.instruction,
         asset = this.asset,
         quantity = this.quantity,
         price = this.price,

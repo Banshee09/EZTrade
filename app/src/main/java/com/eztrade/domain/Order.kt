@@ -7,6 +7,7 @@ import java.time.LocalDateTime
 @Parcelize
 data class Order(
     var user: String,
+    var instruction: String,
     var asset: String,
     var quantity: Int,
     var price: Double,

@@ -74,10 +74,10 @@ fun TextView.setAssetString(item: Order?) {
     }
 }
 
-@BindingAdapter("quantityString")
+@BindingAdapter("unitString")
 fun TextView.setQuantityString(item: Order?) {
     item?.let {
-        text = (item.quantity.toString())
+        text = (item.unit.toString())
     }
 }
 

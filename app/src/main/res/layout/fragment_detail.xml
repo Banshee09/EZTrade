@@ -75,15 +75,14 @@
             <TextView
                 android:layout_column="1"
                 android:padding="3dip"
-                android:text="Price"
+                android:text="Unit"
                 android:textSize="18dp" />
 
             <TextView
                 android:gravity="right"
                 android:padding="3dip"
-                android:text="@{String.valueOf(viewModel.order.price)}"
+                android:text="@{String.valueOf(viewModel.order.unit)}"
                 android:textSize="18dp" />
-
         </TableRow>
 
         <TableRow
@@ -93,14 +92,15 @@
             <TextView
                 android:layout_column="1"
                 android:padding="3dip"
-                android:text="Quantity"
+                android:text="Price"
                 android:textSize="18dp" />
 
             <TextView
                 android:gravity="right"
                 android:padding="3dip"
-                android:text="@{String.valueOf(viewModel.order.quantity)}"
+                android:text="@{String.valueOf(viewModel.order.price)}"
                 android:textSize="18dp" />
+
         </TableRow>
 
         <TableRow

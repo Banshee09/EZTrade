@@ -29,17 +29,20 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorPrimaryDark"
-                android:checked="true"
+                android:checked="@{transactViewModel.instruction.toString().equalsIgnoreCase(`BUY`)}"
+                android:onClick="@{()->transactViewModel.changeInstruction(`BUY`)}"
                 android:text="BUY"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
-              <RadioButton
+            <RadioButton
                 android:id="@+id/radio_sell"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorPrimaryDark"
+                android:checked="@{transactViewModel.instruction.toString().equalsIgnoreCase(`SELL`)}"
+                android:onClick="@{()->transactViewModel.changeInstruction(`SELL`)}"
                 android:text="SELL"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -82,17 +85,18 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Quantity"
+                android:text="Unit"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/QuantityInput"
+                android:id="@+id/UnitInput"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="number"
                 android:maxLines="1"
+                android:text="@={transactViewModel.unit}"
                 android:textSize="18dp" />
 
         </LinearLayout>
@@ -118,6 +122,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@={``+transactViewModel.price}"
                 android:textSize="18dp" />
 
         </LinearLayout>
@@ -142,7 +148,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-
+                android:gravity="center_vertical"
+                android:text="@={``+transactViewModel.total}"
                 android:textSize="18dp" />
 
         </LinearLayout>
@@ -162,6 +169,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
+                android:enabled="@{transactViewModel.asset!= null &amp;&amp; !transactViewModel.asset.empty}"
                 android:onClick="@{() -> transactViewModel.fillOrder()}"
                 android:text="Fill Order"
                 android:textColor="#ffffff" />
@@ -173,6 +181,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimaryDark"
+                android:enabled="@{transactViewModel.total > 0}"
                 android:onClick="@{() -> transactViewModel.placeOrder()}"
                 android:text="Place Order"
                 android:textColor="#ffffff" />

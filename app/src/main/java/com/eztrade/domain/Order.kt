@@ -9,7 +9,7 @@ data class Order(
     var user: String,
     var instruction: String,
     var asset: String,
-    var quantity: Int,
+    var unit: Int,
     var price: Double,
     var total: Double,
     var insertDate: LocalDateTime,

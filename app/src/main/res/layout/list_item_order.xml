@@ -59,7 +59,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/asset"
             app:layout_constraintTop_toTopOf="@+id/asset"
-            app:quantityString="@{order}"
+            app:unitString="@{order}"
             tools:text="10" />
 
         <TextView

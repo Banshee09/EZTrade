@@ -65,6 +65,10 @@ object EzTradeWs {
     val orderService: OrderService by lazy {
         retrofit.create(OrderService::class.java)
     }
+
+    val holdingService: HoldingService by lazy {
+        retrofit.create(HoldingService::class.java)
+    }
 }
 
 

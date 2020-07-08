@@ -66,5 +66,14 @@ class TransactViewModel : ViewModel() {
         viewModelScope.launch {
             EzTradeWs.orderService.createOrder(order)
         }
+
+        resetOrder()
+    }
+
+    private fun resetOrder() {
+        asset.value = ""
+        unit.value = ""
+        price.value = 0.0
+        total.value = 0.0
     }
 }

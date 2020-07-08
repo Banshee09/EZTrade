@@ -13,19 +13,29 @@ interface OrderDao {
     fun insertAll(vararg orders: DatabaseOrder)
 }
 
-@Database(entities = [DatabaseOrder::class], version = 1)
-abstract class OrdersDatabase : RoomDatabase() {
-    abstract val orderDao: OrderDao
+@Dao
+interface HoldingDao {
+    @Query("select * from databaseholding")
+    fun getHoldings(): LiveData<List<DatabaseHolding>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(vararg holdings: DatabaseHolding)
 }
 
-private lateinit var INSTANCE: OrdersDatabase
+@Database(entities = [DatabaseOrder::class, DatabaseHolding::class], version = 1)
+abstract class FrontendDatabase : RoomDatabase() {
+    abstract val orderDao: OrderDao
+    abstract val holdingDao: HoldingDao
+}
 
-fun getDatabase(context: Context): OrdersDatabase {
-    synchronized(OrdersDatabase::class.java) {
+private lateinit var INSTANCE: FrontendDatabase
+
+fun getDatabase(context: Context): FrontendDatabase {
+    synchronized(FrontendDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
-                OrdersDatabase::class.java,
+                FrontendDatabase::class.java,
                 "order"
             ).build()
         }
